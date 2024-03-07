@@ -181,7 +181,7 @@ function updateDates() {
     let timeNow = getTodayStartTime();
     let today = getTodayDate();
     // if (saveData.doneDays == undefined){
-    if (studySessionData.doneInstructions == "") {
+    if (studySessionData.doneInstructions == "" || studySessionData.doneInstructions == undefined) {
         yesterday = null;
         yesterdayPlusOne = null
     } else if ((studySessionData.doneDay1 == "") && (studySessionData.doneInstructions != "")) {
