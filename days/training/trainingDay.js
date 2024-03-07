@@ -184,7 +184,6 @@ async function trainingDay() {
                 }, 300000);
                 // }, 10000);
             }
-            studySessionData.doneDay1 = "startDayOne";
             platform.saveSession(studySessionData, true).then(() => {
                 startIntervalTrainingDay();
                 getMillisec();

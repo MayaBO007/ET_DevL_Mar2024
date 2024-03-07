@@ -12,9 +12,8 @@ async function start2tests() {
         // my_awesome_script.src = "../functions/orientation.js";
         document.body.appendChild(my_awesome_script);
         document.getElementById("startButton").style.display = "none";
-        // studySessionData.doneDay2 = "startDay2";
         // platform.saveSession(studySessionData, true);
-        // getMillisec();
+        getMillisec();
         let startIntervalTest = async function () {
             let startBeforeStar = await startInterval2Tests();
             if (startBeforeStar == "done1") {
