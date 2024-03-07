@@ -180,21 +180,20 @@ function updateDates() {
     let fullDate = new Date();
     let timeNow = getTodayStartTime();
     let today = getTodayDate();
-    // if (saveData.doneDays == undefined){
-    if (studySessionData.doneInstructions == "" || studySessionData.doneInstructions == "undefined") {
-        yesterday = null;
-        yesterdayPlusOne = null
-    } else if ((studySessionData.doneDay1 == "") && (studySessionData.doneInstructions != "")) {
-        yesterday = null;
+    let date = new Date;
+    let yesterday = new Date(date.setDate(date.getDate() - 1));
+    if ((studySessionData == undefined) || (studySessionData.doneInstructions == "")) {
+        return
+    } else if ((studySessionData.isDayDone == "") && (studySessionData.doneInstructions != "")) {
+        lastGame = null;
         yesterdayPlusOne = null;
     } else {
-        // let yesterday = new Date(saveData.expDays.date= new Date(jatos.studySessionData.expDaysDate);
-        yesterday = new Date(studySessionData.expDaysDate)
-        nextDay = new Date(studySessionData.expDaysDate)
-        yesterdayPlusOne = nextDay.setDate(nextDay.getDate() + 1);
+        lastGame = new Date(studySessionData.expDaysDate);
+        lastGame2 = new Date(studySessionData.expDaysDate);
+        yesterdayPlusOne = lastGame2.setDate(lastGame2.getDate() + 1);
         yesterdayPlusOne = new Date(yesterdayPlusOne)
     }
-    return { fullDate, timeNow, today, yesterday, yesterdayPlusOne }
+    return { fullDate, timeNow, today, yesterday, yesterdayPlusOne, lastGame }
 }
 
 
