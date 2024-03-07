@@ -12,11 +12,10 @@ function moveToDay() {
             if (todayDate == "14") { //NO ZEROS IN FRONT OF SINGEL DIGITS
                 platform.goToUrl("days/twoTests/twoTests.html");
             } else if ((typeof studySessionData === "undefined" || studySessionData.doneInstructions === "")) {
-                if (Number(todayDate) == 4) { //change to exp start date
+                if (Number(todayDate) == 7) { //change to exp start date
                     platform.goToUrl("instructions/instructions.html");
                     studySessionData.doneInstructions = "stratIns";
                 } else {
-                    studySessionData.diffDay = todayDate;
                     platform.saveSession(studySessionData, true).then(() => {
                         problemOrient();
                     });
