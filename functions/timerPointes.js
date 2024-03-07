@@ -8,6 +8,32 @@ async function onloadPics() {
     })
 };
 
+const daysMissedNum = [];
+let daysMissing = [];
+let findlastIndexM = null;
+let lastTimestampM = null;
+let IndexM = null;
+
+const daysMissed = {
+    daysMissedNum: daysMissedNum
+};
+
+async function getIndexMissedDays(data) {
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].hasOwnProperty("daysMissedNum")) {
+            findlastIndexM = data[i].createdAt;
+            if (lastTimestampM == null) {
+                lastTimestampM = findlastIndexM;
+                IndexM = i;
+            } else if (findlastIndexM > lastTimestampM) {
+                lastTimestampM = findlastIndexM;
+                IndexM = i;
+            }
+        }
+    }
+    return IndexM;
+}
+
 let now = null;
 function msCount() {
     msIntAll = setInterval(function setTimer() {
@@ -162,12 +188,12 @@ function timeToWait() {
 
 let studySessionData = {
     startDate: "",
-    userDevice: "",
     doneInstructions: "",
-    doneDay1: "",
-    doneDay2: "",
-    doneDay3: "",
-    expDaysDate: ""
+    isDayDone: "",
+    doneTest1: "",
+    doneTest2: "",
+    expDaysDate: "",
+    userDevice: ""
 };
 
 function deleteFromSessionData() {
